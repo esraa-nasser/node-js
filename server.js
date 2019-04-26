@@ -1,6 +1,7 @@
 const express=require('express');
 const hbs=require('hbs')
 const fs=require('fs');
+const port=process.env.PORT || 3000;
 var app=express();
 console.log(__dirname+ "\\public");
 hbs.registerPartials(__dirname+ '\\views\\Partial')
@@ -43,4 +44,6 @@ app.get('/about',((req,res)=>{
 app.get('/bad',((req,res)=>{
     res.send({errorMsg:"Can't make request" });
 }))
-app.listen(3000);
+app.listen(port,()=>{
+    console.log(`Server is runing upon Port: ${port}`)
+});
