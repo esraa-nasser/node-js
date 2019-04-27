@@ -19,10 +19,7 @@ app.use((req,res,next)=>{
     })
     next();
 })
-app.use((req,res,next)=>{
-    res.render('./maintainence.hbs');
-    next();
-})
+
 app.use(express.static(__dirname+ '\\public'));
 hbs.registerHelper('getCurrentYear',()=>{
     return new Date().getFullYear();
@@ -42,9 +39,16 @@ app.get('/home',((req,res)=>{
 app.get('/about',((req,res)=>{
     res.render('./about.hbs',{name:'Esraa',age:23,location:'About Page'})
 }))
+app.get('/projects',((req,res)=>{
+    res.render('./projects.hbs',{name:'Esraa',age:23,location:'Portfolio Page'})
+}))
 app.get('/bad',((req,res)=>{
     res.send({errorMsg:"Can't make request" });
 }))
+// app.use((req,res,next)=>{
+//     res.render('./maintainence.hbs');
+//     next();
+// })
 app.listen(port,()=>{
     console.log(`Server is runing upon Port: ${port}`)
 });
