@@ -3,8 +3,8 @@ const hbs=require('hbs')
 const fs=require('fs');
 const port=process.env.PORT || 3000;
 var app=express();
-console.log(__dirname+ "\\public");
-hbs.registerPartials(__dirname+ '\\views\\Partial')
+console.log(__dirname+ "/public");
+hbs.registerPartials(__dirname+ '/views/Partial')
 app.set('view engine','hbs');
 
 app.use((req,res,next)=>{
@@ -20,7 +20,7 @@ app.use((req,res,next)=>{
     next();
 })
 
-app.use(express.static(__dirname+ '\\public'));
+app.use(express.static(__dirname+ '/public'));
 hbs.registerHelper('getCurrentYear',()=>{
     return new Date().getFullYear();
 })
